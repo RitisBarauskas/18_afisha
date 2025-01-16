@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список городов</title>
+</head>
+<body>
+
+    <h1>Список городов</h1>
+    <ul>
+    {% for city in cities %}
+        <li>{{ city.name }} ({{ city.population }})</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
