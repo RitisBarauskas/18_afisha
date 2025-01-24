@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выбери для себя развлечение</title>
+</head>
+<body>
+
+    <h1>Выбери для себя развлечение</h1>
+    <h2>Ближайшие события</h2>
+    <ol>
+    {% for event in nearest_events %}
+        <li>{{ event.event_date }}
+            <a href="{% url 'events:event_detail' event.event.id %}">
+               {{ event.event.title }}
+            </a>
+            в {{ event.place.name }} ({{ event.place.city.name }})</li>
+    {% endfor %}
+    </ol>
+    <h2>Прошедшие события</h2>
+    <ol>
+    {% for event in last_events %}
+        <li>{{ event.event_date }} {{ event.event.title }} в {{ event.place.name }} ({{ event.place.city.name }})</li>
+    {% endfor %}
+    </ol>
+</body>
+</html>
